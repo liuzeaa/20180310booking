@@ -1,0 +1,52 @@
+<%- include('../common/header') -%>
+<%- include('../common/nav') -%>
+<aside class="right-side">
+    <!-- Main content -->
+    <section class="content">
+       <div class="row">
+           <div class="col-md-12">
+               <div class="panel">
+                   <header class="panel-heading">
+                       Simple Full Width Table
+
+                   </header>
+                   <div class="panel-body">
+
+                       <div class="box-tools clearfix">
+                            <a href="/user/create" class="btn btn-primary pull-right">增加</a>
+                       </div>
+                       <table class="table">
+                           <tbody>
+                           <tr>
+                               <th>登录名</th>
+                               <th>昵称</th>
+                               <th>是/否管理员</th>
+                               <th>创建时间</th>
+                               <th>操作</th>
+                           </tr>
+                           <% for(var i = 0;i<list.length;i++){ %>
+                           <tr>
+                               <td><%= list[i].name %></td>
+                               <td><%= list[i].nickName%></td>
+                               <td><% if(list[i].isAdmin){ %>是<% }else{ %><% } %></td>
+                               <td><%= list[i].createdAt %></td>
+                               <td>
+                                   <% if(!list[i].isAdmin){ %>
+                                       <a href="/user/edit" class="btn btn-primary">编辑</a>
+                                       <a href="/user/delete" class="btn btn-danger">删除</a>
+                                   <% } %>
+                               </td>
+                           </tr>
+                           <% }%>
+                           </tbody></table>
+                   </div><!-- /.panel-body -->
+               </div>
+           </div>
+       </div>
+
+    </section>
+    <div class="footer-main">
+        Copyright &copy Director, 2014. More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+    </div>
+</aside>
+<%- include('../common/footer') -%>
